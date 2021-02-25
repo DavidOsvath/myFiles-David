@@ -1,0 +1,6 @@
+.digital-clock {
+    display:flex;
+}
+.digital-clock > div{
+    display:flex;
+}
