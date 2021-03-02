@@ -28,6 +28,7 @@ document.getElementById("stop-time").addEventListener("click", function(){
 
 let myTimer;
 let startCheck = 0;
+let saveAvailable = false;
 
 function startTheTime(){
   if (startCheck === 0) {
@@ -43,6 +44,7 @@ document.getElementById("save-time").addEventListener("click", saveTheTime);
 
 
               function displayTime() {
+                        saveAvailable = true;
                         renderDigits(seconds, secondsParagraphs);
                         renderDigits(minutes, minutesParagraphs);
                         renderDigits(hours, hoursParagraphs);
@@ -145,9 +147,11 @@ function saveTheTime(){
   let savedMinutes = document.querySelectorAll(".minutes-save p");
   let savedSeconds = document.querySelectorAll(".seconds-save p");
 
-                        renderDigits(seconds-1, savedSeconds);
+  if (saveAvailable) {renderDigits(seconds-1, savedSeconds);} else {renderDigits(seconds, savedSeconds);}
+                        
                         renderDigits(minutes, savedMinutes);
                         renderDigits(hours, savedHours);
+
 
                       
   
